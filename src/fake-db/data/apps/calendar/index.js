@@ -5,28 +5,24 @@ const data = {
   events: [
     {
       id: 1,
-      title: 'My Event',
+      title: 'Bosses Måleri - Jobb i Kista',
       startDate: new Date(new Date() - 1000 * 60 * 60 * 24 * 3),
       endDate: new Date(new Date() - 1000 * 60 * 60 * 24 * 2),
-      url: '',
-      classes: 'event-success',
+      info: 'Vi vehöver några gubbar, är det någon som har folk över?',
+      classes: 'event-danger',
+      behov: 'behov_av_folk',
       label: 'business'
     }
   ],
   labels: [
     {
-      text: 'Business',
-      value : 'business',
+      text: 'Folk Över',
+      value : 'folk_over',
       color: 'success'
     },
     {
-      text: 'Work',
-      value: 'work',
-      color: 'warning'
-    },
-    {
-      text: 'Personal',
-      value: 'personal',
+      text: 'Behov av folk',
+      value: 'behov_av_folk',
       color: 'danger'
     }
   ]

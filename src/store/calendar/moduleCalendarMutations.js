@@ -13,6 +13,7 @@ export default {
     state.events.push(event)
   },
   SET_EVENTS (state, events) {
+    
     state.events = events
   },
   SET_LABELS (state, labels) {
@@ -23,7 +24,8 @@ export default {
     Object.assign(state.events[eventIndex], event)
   },
   REMOVE_EVENT (state, eventId) {
-    const eventIndex = state.events.findIndex((e) => e.id === eventId)
+    const newId = parseInt(eventId) //måste konvertera skiten till int :<
+    const eventIndex = state.events.findIndex((e) => e.id === newId)
     state.events.splice(eventIndex, 1)
   }
 }

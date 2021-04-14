@@ -19,6 +19,7 @@ export default {
       jwt.login(payload.userDetails.email, payload.userDetails.password)
         .then(response => {
           console.log(response)
+       
           // If there's user data in response
           if (response.data.userData) {
             
@@ -37,7 +38,8 @@ export default {
             reject({message: 'Wrong Email or Password'})
           }
 
-        }).then(  response => { //we do this to catch up the async functions prior
+        }).then(response => { //we do this to catch up the async functions prior
+          console.log('logged in.. :D')
           // Let's route the user
           router.push(router.currentRoute.query.to || '/')
         })

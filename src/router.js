@@ -174,6 +174,36 @@ const router = new Router({
            
           }
         },
+       
+        {
+          path: '/addvehicle',
+          name: 'addvehicle',
+          component: () => import('./views/-pages/AddVehicle.vue'),
+          meta: {
+            breadcrumb: [
+              { title: 'Home', url: '/' },
+              { title: 'Add Vehicle', active: true }
+            ],
+            pageTitle: 'Add Vehicle',
+            rule: 'user'
+            
+          }
+        },
+        //Calender test
+        {
+          path: '/kalender',
+          name: 'Kalender',
+          component: () => import('./views/-pages/kalender/Kalender.vue'),
+          meta: {
+            breadcrumb: [
+              { title: 'Home', url: '/' },
+              { title: 'Kalender', active: true }
+            ],
+            pageTitle: 'Kalender',
+            rule: 'user'
+            
+          }
+        },
         //websockets test
 
         {
@@ -1560,7 +1590,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.rule !== 'anyone') {
     console.log(`checking if user is logged in: ${  store.state.auth.isUserLoggedIn()}`)
     if (!store.state.auth.isUserLoggedIn()) {
-      router.push({ path: '/login', query: { to: to.path } })
+      router.replace({ path: '/login', query: { to: to.path } })
     }
   }
 

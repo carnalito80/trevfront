@@ -48,3 +48,7 @@ i.wizard-icon {
   padding: 11px;
 }
 
+//JK fix for mobile
+.wizard-btn {
+  min-width: 120px !important;
+}

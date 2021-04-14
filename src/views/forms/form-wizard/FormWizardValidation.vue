@@ -358,6 +358,7 @@ export default {
       ]
     }
   },
+  
   methods: {
     validateStep1 () {
       return new Promise((resolve, reject) => {

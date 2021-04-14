@@ -24,7 +24,8 @@ export default {
       const originalRequest = config
 
       // if (status === 401) {
-      if (response && response.status === 402) {
+      if (response && (response.status === 402 || response.status === 401)) { //we need a solution for fixing expired tokens. Backend currently does not handle refresh, you need two tokens for that.
+        console.log('errror 401 or 402')
         if (!isAlreadyFetchingAccessToken) {
           isAlreadyFetchingAccessToken = true
           store.dispatch('auth/fetchAccessToken')
@@ -50,6 +51,12 @@ export default {
     return axios.post('/api/login', {
       email,
       password: pwd
+    }).catch((error) => {
+      // Error 😨
+      if (error.response) {
+        console.log(error.response)  
+        return false
+      }
     })
   },
   registerUser (f_name, l_name, mail, pwd) {
